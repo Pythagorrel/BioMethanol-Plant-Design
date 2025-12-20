@@ -1,2 +1,5 @@
 # BioMethanol Plant Design
-ant
+General points to note: 
+1. Fugacity coefficients for all species except hydrogen are modelled using a bilinear interpolation of the Lee-Kesler corrrelation tables. These are hard coded into the FugacityCo.jl module along with the interpolation function. For hydrogen, the Pitzer-correlation is used since the Tr is way outside the range of the correlation tables. This module can be edited to use an equation of state like SRK for the fugacity coefficient, in which case, only the dictionary indexing may be useful from the original file may be useful.
+2. The RxnCo.jl module can be a useful template for solving systems of linearly independent reactions expressed in terms of their reaction coordinates. In order to use this module, you must have the NLsolver.jl package installed.
+3. In order to run the Test Case.jl file, you will need all of the repository modules loaded into your working folder. You could also copy them directly into wherever you're working. The test case operates over a T range of 473.15-573.15K and P range of 50:100 bar, with the feed ratio set at a default 1:3. All of these can be adjusted to suit your particular case. 
