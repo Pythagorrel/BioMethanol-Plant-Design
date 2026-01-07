@@ -1,0 +1,114 @@
+Thermodynamic Model: CO₂ Hydrogenation to Methanol
+
+This directory contains the thermodynamic modeling engine for the Biomethanol Plant Design project.
+It has been structured as a modular Julia package ecosystem i.e. the physics logic is split into dedicated packages(located in Modules/)
+which are all accessible through the central ThermodynamicModel Module. 
+
+By running using ThermodynamicModel, you gain access to the following functions for plant simulation.
+
+1. Equilibrium Constants (BioMethEQK)
+
+Calculates the chemical equilibrium constant (K) for the three primary reactions involved in methanol synthesis.
+    Functions:
+
+        EQConst1(T): Reaction 1 (CO2​+3H2​↔CH3​OH+H2​O)
+
+        EQConst2(T): Reaction 2 (CO+2H2​↔CH3​OH)
+
+        EQConst3(T): Reaction 3 (RWGS: CO2​+H2​↔CO+H2​O)
+
+    Input: T (Temperature in Kelvin)
+
+    Returns: Float (The dimensionless equilibrium constant K)
+
+2. Non-Ideality / Fugacity (FugacityCo)
+
+Calculates the fugacity coefficients (ϕ) to account for gas-phase non-ideality at high pressures.
+
+    Function: fugacity(T, P)
+
+    Methodology:
+
+        Hydrogen (H2​): Calculated using the Pitzer correlation.
+
+        Other Species: Calculated using the Lee-Kesler tables (generalized correlations).
+
+    Inputs:
+
+        T: Temperature (Kelvin)
+
+        P: Pressure (bar)
+
+    Returns: A Dictionary where keys are chemical formulas ("CH3OH", "CO2", etc.) and values are the fugacity coefficients.
+
+3. Reactor Solver (RxnCo)
+
+The primary numerical solver that determines the equilibrium composition of the reactor.
+
+    Function: rxnco(T, P, phi, guess, feed_co2, feed_h2)
+
+    Inputs:
+
+        T: Temperature (Kelvin)
+
+        P: Pressure (bar)
+
+        phi: The dictionary output from fugacity(T, P)
+
+        guess: A vector [x, y] representing initial guesses for the extent of reactions.
+
+        feed_co2 / feed_h2: Molar flow rates of the feed components.
+
+    Returns: An NLsolve object.
+
+        Access the solution vector via .zero.
+
+        Check convergence via converged(sol).
+
+4. Plant Performance Metrics
+
+These functions take the converged solution from the reactor and calculate key efficiency indicators.
+
+    Functions:
+
+        yieldF(roots): Calculates Methanol Yield.
+
+        selectivityF(roots): Calculates Selectivity of Methanol vs. side products.
+
+        conv(roots): Calculates CO₂ per-pass conversion.
+
+    Input: roots (The vector result from the rxnco solver).
+
+How to Run the Model
+
+1. Initial Setup
+
+Because this is a packaged environment, you must instantiate the dependencies once before running.
+
+    Open this folder in your terminal.
+
+    Launch Julia and enter the Package Manager (press ]).
+
+    Run:
+        (v1.x) pkg> activate .
+        (ThermodynamicModel) pkg> instantiate
+
+2. Running a Simulation
+
+We have provided a master script, Test Case.jl, that automatically loads the environment and runs a simulation sweep across a range of Pressures (50-100 bar) and Temperatures.
+
+To run it:
+
+julia> include("Test Case.jl")
+
+3. Editing the Simulation
+
+To simulate different plant conditions, open Test Case.jl and modify the FEED PARAMETERS section at the top:
+
+# ==========================================
+# 2. FEED PARAMETERS 
+# ==========================================
+FEED_CO2 = 1.0  # Change feed basis
+FEED_H2  = 3.0  # Change stoichiometric ratio (e.g., set to 2.5 or 4.0)
+
+You can also adjust T_range and P_range in the execution loop to generate data for sensitivity analysis graphs.
