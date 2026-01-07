@@ -1,0 +1,14 @@
+name = "ThermodynamicModel"
+uuid = "692acab3-29fb-4e63-9a4d-fb452c4122ae"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+BioMethEQK = "c837d929-f6af-4e94-938f-911cb6101387"
+Conversion = "3899dea4-a911-402a-bc0a-c399d4012fb9"
+FugacityCo = "5e8cb7da-9f25-400c-b5cb-cbceb9c29510"
+NLsolve = "2774e3e8-f4cf-5e23-947b-6d7e65073b56"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+RxnCo = "b495fcf9-e403-4f9b-ab16-46e49afc00bd"
+Yield = "298e1b62-b216-4eda-b103-b0999c45c77f"
