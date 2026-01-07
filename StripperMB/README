@@ -1,1 +1,103 @@
+StripperMB: Methanol Stripper Design Module
 
+This module is built to generate the McCabe-Thiele diagram to step and size the stripper column. 
+Raw PFD data is kept separate from the mass transfer physics via. modularization
+
+System Architecture
+
+The module is split into three layers to ensure data consistency across the plant design:
+
+    StripperBasis (Data Layer):
+
+        Contains the "Single Source of Truth" for process flows (Methanol/Water rates, H2​ gas feed) and physical constants (Henry's Law constant, Pressure).
+
+        Benefit: Changing a flow rate here automatically updates the entire design.
+
+    StripperXYEQ (Logic Layer):
+
+        Handles the mass transfer physics.
+
+        Converts raw flows into Mole Ratios (X,Y) to ensure linear operating lines even with changing total flow rates.
+
+        Calculates the coordinates for the Operating Line and Equilibrium Curve.
+
+    StripperMB (Interface):
+
+        The central package that bundles the basis and logic together for the user.
+
+Available Functions
+
+By running using StripperMB, you gain access to the following functions to generate your design diagrams.
+
+1. Design Logic (StripperXYEQ)
+
+These are the core functions used to generate the lines for the McCabe-Thiele plot.
+
+    calculate_op_line_points(target_removal)
+
+        Purpose: Calculates the start and end coordinates of the Operating Line for a specific performance target.
+
+        Input: target_removal (Float, e.g., 0.995 for 99.5% removal).
+
+        Returns: An OpLineCoords object containing:
+
+            X_top / Y_top: Coordinates at the column top (Rich Gas / Feed Liquid).
+
+            X_btm / Y_btm: Coordinates at the column bottom (Lean Gas / Lean Liquid).
+
+    calculate_equilibrium_curve(num_points)
+
+        Purpose: Generates the Equilibrium Curve based on Henry's Law (m=H/P).
+
+        Input: num_points (Integer, default 100).
+
+        Returns: Two arrays (X_ratios, Y_ratios) ready for plotting.
+
+2. Process Data Accessors (StripperBasis)
+
+Direct access to the underlying PFD values used in the calculation.
+
+    calculate_L0(): Returns total liquid molar flow rate entering the stripper.
+
+    calculate_xA0(): Returns the mole fraction of solute (CO2​) in the feed.
+
+    calculate_L_prime(): Returns the solute-free liquid flow (Methanol + Water).
+
+    calculate_V_prime(): Returns the solute-free gas flow (H2​ carrier).
+
+    calculate_equilibrium_m(): Returns the calculated Henry's Law constant (m) at operating pressure.
+
+How to Run the Design
+
+1. Initial Setup
+
+Since this module requires visualization tools (PyPlot), you must instantiate the environment first.
+
+    Open this folder in your terminal.
+
+    Enter the Package Manager (]).
+
+    Run:
+    
+      (v1.x) pkg> activate .
+      (StripperMB) pkg> instantiate
+
+2. Generating the Diagram
+
+We have provided a visualization script, McCabe_Thiele.jl, that automatically calculates the curves and generates the plot.
+
+To run it:
+julia> include("McCabe_Thiele.jl")
+
+Output: A window will generate showing the Equilibrium Curve (Black) and Operating Line (Blue), along with the specific coordinates in the console.
+
+3. Editing the Design Target
+
+To verify if the stripper can handle different removal requirements (e.g., 95% vs 99.9%), open McCabe_Thiele.jl and edit the target variable at the top:
+
+# ==========================================
+# 1. SETUP
+# ==========================================
+target = 0.995  # <--- CHANGE THIS (e.g., to 0.95 or 0.999)
+
+Rerunning the script will instantly update the Operating Line slope and coordinates to reflect the new design requirement.
