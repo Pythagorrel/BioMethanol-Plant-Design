@@ -1,0 +1,15 @@
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.9.2"
+manifest_format = "2.0"
+project_hash = "c3f9353d9be963fc822995ebda8212f8a4d2f616"
+
+[[deps.Reexport]]
+git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
+uuid = "189a3867-3050-52da-a836-e630ba90ab69"
+version = "1.2.2"
+
+[[deps.StripperBasis]]
+path = "../StripperBasis"
+uuid = "2e30a728-1751-4e71-a71a-e3683a079bc8"
+version = "0.1.0"

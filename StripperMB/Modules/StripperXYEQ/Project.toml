@@ -1,0 +1,8 @@
+name = "StripperXYEQ"
+uuid = "df7e8c20-6ade-4d8d-8c14-432c67786435"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+StripperBasis = "2e30a728-1751-4e71-a71a-e3683a079bc8"

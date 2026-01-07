@@ -1,0 +1,10 @@
+name = "StripperMB"
+uuid = "ea988b99-647c-4f2f-acaa-bc007f2438b8"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+StripperBasis = "2e30a728-1751-4e71-a71a-e3683a079bc8"
+StripperXYEQ = "df7e8c20-6ade-4d8d-8c14-432c67786435"
