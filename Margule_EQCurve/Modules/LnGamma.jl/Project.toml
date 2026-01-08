@@ -1,0 +1,10 @@
+name = "LnGamma"
+uuid = "3b22a90d-4d13-4c4a-8aba-ea13052d55f1"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+AntoineMethanol = "6dec24fb-392b-4965-a0c5-27641657f0f5"
+AntoineWater = "94bf0af5-d806-4146-bed8-a1837e21ada8"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+VLE_MeH2O = "1f9ca7cb-1173-4c8e-9566-6bd59837b69c"

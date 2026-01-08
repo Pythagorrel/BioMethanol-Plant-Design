@@ -1,0 +1,9 @@
+name = "GeRTx1x2"
+uuid = "61aac1af-f025-46cc-96af-09d101badf61"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+GeRT = "b47e1ca3-02e7-46ff-a502-4a4ffcdfece9"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+VLE_MeH2O = "1f9ca7cb-1173-4c8e-9566-6bd59837b69c"

@@ -1,0 +1,17 @@
+name = "Margule_EQCurve"
+uuid = "3a305660-7540-46ac-b5a3-68b39d573a46"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+AntoineMethanol = "6dec24fb-392b-4965-a0c5-27641657f0f5"
+AntoineWater = "94bf0af5-d806-4146-bed8-a1837e21ada8"
+BubblePointSolver = "644e04b7-1741-4fc4-8728-1a8bdce5b91e"
+Final_Margules_Fit = "abeaf230-7f15-4677-9975-7ebf0da94430"
+GeRT = "b47e1ca3-02e7-46ff-a502-4a4ffcdfece9"
+GeRTx1x2 = "61aac1af-f025-46cc-96af-09d101badf61"
+IsobaricCurveGenerator = "3ea99c1f-7dea-42e3-9bc3-80cc7cae9f2a"
+LnGamma = "3b22a90d-4d13-4c4a-8aba-ea13052d55f1"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+VLE_MeH2O = "1f9ca7cb-1173-4c8e-9566-6bd59837b69c"

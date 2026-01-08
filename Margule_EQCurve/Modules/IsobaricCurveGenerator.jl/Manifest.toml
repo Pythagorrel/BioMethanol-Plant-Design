@@ -1,0 +1,62 @@
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.9.2"
+manifest_format = "2.0"
+project_hash = "ed536dcefef553a92ab01cb7366e34e0a5299de5"
+
+[[deps.AntoineMethanol]]
+path = "../AntoineMethanol.jl"
+uuid = "6dec24fb-392b-4965-a0c5-27641657f0f5"
+version = "0.1.0"
+
+[[deps.AntoineWater]]
+path = "../AntoineWater.jl"
+uuid = "94bf0af5-d806-4146-bed8-a1837e21ada8"
+version = "0.1.0"
+
+[[deps.BubblePointSolver]]
+deps = ["AntoineMethanol", "AntoineWater", "Reexport"]
+path = "../BubblePointSolver.jl"
+uuid = "644e04b7-1741-4fc4-8728-1a8bdce5b91e"
+version = "0.1.0"
+
+[[deps.Final_Margules_Fit]]
+deps = ["GeRT", "GeRTx1x2", "Printf", "Reexport", "VLE_MeH2O"]
+path = "../Final_Margules_Fit.jl"
+uuid = "abeaf230-7f15-4677-9975-7ebf0da94430"
+version = "0.1.0"
+
+[[deps.GeRT]]
+deps = ["LnGamma", "Reexport", "VLE_MeH2O"]
+path = "../GeRT.jl"
+uuid = "b47e1ca3-02e7-46ff-a502-4a4ffcdfece9"
+version = "0.1.0"
+
+[[deps.GeRTx1x2]]
+deps = ["GeRT", "Reexport", "VLE_MeH2O"]
+path = "../GeRTx1x2.jl"
+uuid = "61aac1af-f025-46cc-96af-09d101badf61"
+version = "0.1.0"
+
+[[deps.LnGamma]]
+deps = ["AntoineMethanol", "AntoineWater", "Reexport", "VLE_MeH2O"]
+path = "../LnGamma.jl"
+uuid = "3b22a90d-4d13-4c4a-8aba-ea13052d55f1"
+version = "0.1.0"
+
+[[deps.Printf]]
+deps = ["Unicode"]
+uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[[deps.Reexport]]
+git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
+uuid = "189a3867-3050-52da-a836-e630ba90ab69"
+version = "1.2.2"
+
+[[deps.Unicode]]
+uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
+
+[[deps.VLE_MeH2O]]
+path = "../VLE_MeH2O.jl"
+uuid = "1f9ca7cb-1173-4c8e-9566-6bd59837b69c"
+version = "0.1.0"

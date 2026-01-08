@@ -1,0 +1,20 @@
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.9.2"
+manifest_format = "2.0"
+project_hash = "5945b802ffd49f977b08d1f774936e8a1675bfe1"
+
+[[deps.AntoineMethanol]]
+path = "../AntoineMethanol.jl"
+uuid = "6dec24fb-392b-4965-a0c5-27641657f0f5"
+version = "0.1.0"
+
+[[deps.AntoineWater]]
+path = "../AntoineWater.jl"
+uuid = "94bf0af5-d806-4146-bed8-a1837e21ada8"
+version = "0.1.0"
+
+[[deps.Reexport]]
+git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
+uuid = "189a3867-3050-52da-a836-e630ba90ab69"
+version = "1.2.2"

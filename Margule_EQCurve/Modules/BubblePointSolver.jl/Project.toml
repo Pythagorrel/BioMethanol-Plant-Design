@@ -1,0 +1,9 @@
+name = "BubblePointSolver"
+uuid = "644e04b7-1741-4fc4-8728-1a8bdce5b91e"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+AntoineMethanol = "6dec24fb-392b-4965-a0c5-27641657f0f5"
+AntoineWater = "94bf0af5-d806-4146-bed8-a1837e21ada8"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"

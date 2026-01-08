@@ -1,0 +1,9 @@
+name = "IsobaricCurveGenerator"
+uuid = "3ea99c1f-7dea-42e3-9bc3-80cc7cae9f2a"
+authors = ["Jorrel De Santos  <jorreldesantos066@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+BubblePointSolver = "644e04b7-1741-4fc4-8728-1a8bdce5b91e"
+Final_Margules_Fit = "abeaf230-7f15-4677-9975-7ebf0da94430"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
