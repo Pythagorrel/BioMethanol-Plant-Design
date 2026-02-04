@@ -36,7 +36,7 @@ function get_kinetics_hybrid(T)
     K_water = 6.62e-11 * exp(124119.0 / (R_gas * T))
 
     # Equilibrium (Rigorous Gibbs)
-    K_eq1 = EQConst1(T)
+    K_eq1 = EQConst1(T) 
     K_eq3 = EQConst3(T)
 
     return k1, k_rwgs, K_water_h2, K_h2_sqrt, K_water, K_eq1, K_eq3
