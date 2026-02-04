@@ -1,7 +1,7 @@
 using DifferentialEquations
 using PyPlot
 using Printf
-
+using Statistics 
 # ==============================================================================
 # 1. IMPORT THERMODYNAMICS
 # ==============================================================================
@@ -124,3 +124,21 @@ else
     println("[WARNING] Still Equilibrium Limited.")
     @printf("Max Production: %.2f kmol/hr\n", maximum(MeOH_flow_kmol))
 end
+# ==============================================================================
+# POST-PROCESSING (AVERAGE H2 PRESSURE)
+# ==============================================================================
+# Extract H2 flows and Total flows from the solution vector
+F_H2_trace = [u[2] for u in sol.u]
+F_total_trace = [sum(u) for u in sol.u]
+
+# Calculate Partial Pressure at every step (P_op is in Bar)
+P_H2_trace = (F_H2_trace ./ F_total_trace) .* P_op
+
+# Calculate the Mean
+P_H2_avg_bar = mean(P_H2_trace)
+P_H2_avg_pa = P_H2_avg_bar * 1e5
+
+println("\n--- CALIBRATION DATA FOR ASPEN ---")
+@printf("Average H2 Partial Pressure: %.4f Bar\n", P_H2_avg_bar)
+@printf("Average H2 Partial Pressure: %.2f Pa\n", P_H2_avg_pa)
+println("----------------------------------\n")
